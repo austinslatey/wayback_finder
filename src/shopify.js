@@ -1,6 +1,13 @@
 import fetch from "node-fetch";
 import { SHOPIFY_DOMAIN, ADMIN_API_VERSION, ADMIN_TOKEN, STORE_FRONT_URL } from "./config.js";
 
+// Warn if token is missing
+if (!ADMIN_TOKEN) {
+  console.error("SHOPIFY_ADMIN_TOKEN is not set in your .env file. Exiting.");
+  process.exit(1);
+}
+
+
 export async function fetchProductBySKU(sku) {
   const query = `
     {
