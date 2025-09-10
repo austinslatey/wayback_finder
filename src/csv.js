@@ -8,7 +8,11 @@ export function readPartNumbers() {
     const partNumbers = [];
     fs.createReadStream(INPUT_FILE)
       .pipe(csv())
+      .on("headers", (headers) => console.log("CSV headers:", headers))
       .on("data", (row) => {
+        // Debug
+        console.log("Row data:", row);
+        
         if (row["Item Name/Number"]) {
           partNumbers.push(row["Item Name/Number"].trim());
         }
