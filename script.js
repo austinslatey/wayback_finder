@@ -3,9 +3,6 @@ import { readPartNumbers, writeResults } from "./src/csv.js";
 import { fetchProductBySKU } from "./src/shopify.js";
 import { fetchWaybackSnapshot } from "./src/wayback.js";
 
-import dotenv from 'dotenv';
-dotenv.config();
-
 async function main() {
   const partNumbers = await readPartNumbers();
   console.log(`Found ${partNumbers.length} part numbers...`);
