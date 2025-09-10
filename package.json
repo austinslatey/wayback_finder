@@ -1,0 +1,26 @@
+{
+  "name": "wayback_finder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/austinslatey/wayback_finder.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/austinslatey/wayback_finder/issues"
+  },
+  "homepage": "https://github.com/austinslatey/wayback_finder#readme",
+  "dependencies": {
+    "axios": "^1.11.0",
+    "cheerio": "^1.1.2",
+    "csv-parser": "^3.2.0"
+  }
+}
