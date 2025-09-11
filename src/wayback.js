@@ -1,10 +1,13 @@
 import fetch from "node-fetch";
 
-export async function fetchWaybackSnapshot(url) {
+export async function fetchWaybackSnapshot(url, year = new Date().getFullYear() - 1) {
     if (!url) return null;
 
     try {
-        const apiUrl = `https://archive.org/wayback/available?url=${encodeURIComponent(url)}`;
+        // YYYY0101 → Jan 1 of last year by default
+        const timestamp = `${year}0101`;
+        const apiUrl = `https://archive.org/wayback/available?url=${encodeURIComponent(url)}&timestamp=${timestamp}`;
+
         const res = await fetch(apiUrl);
         if (!res.ok) {
             console.warn(`Wayback API request failed for URL: ${url}`);
