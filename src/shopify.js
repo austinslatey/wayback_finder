@@ -40,6 +40,13 @@ export async function fetchProductBySKU(sku) {
   }
 
   const data = await res.json();
+
+  // Check if there are GraphQL errors
+  if (!data.data || !data.data.products) {
+    console.error(`Shopify GraphQL error for SKU ${sku}:`, data.errors || "No data returned");
+    return null;
+  }
+
   const product = data.data.products.edges[0]?.node;
   if (!product) return null;
 
@@ -49,3 +56,4 @@ export async function fetchProductBySKU(sku) {
     url: `${STORE_FRONT_URL}/${product.handle}`,
   };
 }
+
